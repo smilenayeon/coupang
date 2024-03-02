@@ -6,8 +6,9 @@ import LogoPath from "@/assets/colorful.svg";
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import styles from "./Auth.module.scss";
-import Loader from '../../../components/loader/Loader';
-import Input from '../../../components/Input/Input';
+import Loader from '@/components/loader/Loader';
+import Input from '@/components/Input/Input';
+import AutoSignInCheckbox from "@/components/autoSignInCheckbox/AutoSignInCheckbox";
 
 const LoginClient = () => {
     const [email, setEmail] = useState ("");
@@ -66,7 +67,10 @@ const LoginClient = () => {
                 />
                     <div className={styles.group}>
                         {/* 자동로그인, 비밀번호 수정 */}
-                        자동로그인, 비밀번호 수정
+                        <AutoSignInCheckbox
+                                checked={isAutoLogin}
+                                onChange={(e) => setIsAutoLogin(e.target.checked)}
+                            />
                     </div>
                     <div className={styles.buttonGroup}>
                         {/* button */}
