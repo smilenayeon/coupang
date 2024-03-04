@@ -1,8 +1,12 @@
 import React from "react";
+import RegisterClient from "@/app/(auth)/register/RegisterClient";
 
 const Register = () =>{
      return(
-        <div>Register</div>
+        <>
+        <RegisterClient/>
+
+        </>
      )
 }
 

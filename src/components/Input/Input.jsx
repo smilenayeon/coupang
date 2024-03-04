@@ -38,7 +38,7 @@ const Input = ({
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
-    onChange(2);
+    onChange(e);
   };
 
   const iconType = isPasswordVisible ? 'show' : 'hide';
