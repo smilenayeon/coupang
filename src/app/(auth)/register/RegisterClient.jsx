@@ -1,50 +1,39 @@
-
 "use client";
 
-import React, {useState} from 'react';
-import LogoPath from "@/assets/colorful.svg";
-import Image from "next/image";
-import { useRouter } from 'next/navigation';
-import styles from "./Auth.module.scss";
 import Loader from '@/components/loader/Loader';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import React, { useState } from 'react';
+import styles from '../login/Auth.module.scss';
 import Input from '@/components/Input/Input';
-import AutoSignInCheckbox from "@/components/autoSignInCheckbox/AutoSignInCheckbox";
-import Divider from "@/components/divider/Divider";
-import Button from "@/components/button/Button";
+import Button from '@/components/button/Button';
+import Divider from '@/components/divider/Divider';
 import Link from 'next/link';
 
-const LoginClient = () => {
-    const [email, setEmail] = useState ("");
+import LogoPath from "@/assets/colorful.svg";
+
+const RegisterClient = () => {
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [cPassword, setCPassword] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-    const [isAutoLogin, setIsAutoLogin] = useState(false);
 
     const router = useRouter();
-    
-    const redirectUser = ( ) => {
-        router.push("/");
-    };
 
-    const loginUser = (e) => {
+    const registerUser = (e) => {
         e.preventDefault();
         setIsLoading(true);
     }
-
-    const signInWithGoogle = () => {
-
-    }
-
-
   return (
     <>
-        {isLoading && <Loader />}
+      {isLoading && <Loader />}
         <section className={styles.page}>
             <div className={styles.container}>
                 <h1 className={styles.logo}>
                     <Image priority src={LogoPath} alt="logo"/>
                 </h1>
 
-                <form onSubmit={loginUser} className={styles.form}>
+                <form onSubmit={registerUser} className={styles.form}>
                 {/* input */}
                 <Input 
                     email
@@ -69,13 +58,19 @@ const LoginClient = () => {
                     value={password}
                     onChange={(e)=>setPassword(e.target.value)}
                 />
-                    <div className={styles.group}>
-                        {/* 자동로그인, 비밀번호 수정 */}
-                        <AutoSignInCheckbox
-                                checked={isAutoLogin}
-                                onChange={(e) => setIsAutoLogin(e.target.checked)}
-                            />
-                    </div>
+
+                <Input 
+                    password
+                    icon="lock"
+                    id="password"
+                    name="password"
+                    label="비밀번호 확인"
+                    placeholder="비밀번호 확인"
+                    className={styles.control}
+                    value={cPassword}
+                    onChange={(e)=>setCPassword(e.target.value)}
+                />  
+                    
                     <div className={styles.buttonGroup}>
                         {/* button */}
                         <Button 
@@ -83,7 +78,7 @@ const LoginClient = () => {
                             width="100%"
                         
                         >
-                            로그인
+                            회원가입
                         </Button>
 
                         <Divider/>
@@ -92,21 +87,14 @@ const LoginClient = () => {
                             width="100%"
                             secondary
                         >
-                            <Link href={"/register"}>
-                                회원가입
+                            <Link href={"/login"}>
+                                로그인
                             </Link>
                             
                         </Button>
 
                         <Divider/>
 
-                        <div>
-                        <Button
-                            onClick={signInWithGoogle}
-                        >
-                            구글 로그인
-                        </Button>
-                        </div>
                     </div>
                 </form>
             </div>
@@ -115,4 +103,4 @@ const LoginClient = () => {
   )
 }
 
-export default LoginClient
+export default RegisterClient
