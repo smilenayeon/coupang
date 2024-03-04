@@ -1,5 +1,4 @@
 import React from 'react';
-import Input from '@/components/Input/Input';
 
 const Checkbox = ({
     disabled=false,
@@ -10,7 +9,7 @@ const Checkbox = ({
 }) => {
   return (
     <label style={{fontSize: '1.4 rem'}}>
-        <Input 
+        <input 
             type="checkbox"
             checked={checked}
             disabled={disabled}
