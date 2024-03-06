@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, {useState} from 'react';
@@ -11,7 +10,12 @@ import Input from '@/components/Input/Input';
 import AutoSignInCheckbox from "@/components/autoSignInCheckbox/AutoSignInCheckbox";
 import Divider from "@/components/divider/Divider";
 import Button from "@/components/button/Button";
+
 import Link from 'next/link';
+import { toast } from 'react-toastify';
+
+
+
 
 const LoginClient = () => {
     const [email, setEmail] = useState ("");
@@ -28,6 +32,7 @@ const LoginClient = () => {
     const loginUser = (e) => {
         e.preventDefault();
         setIsLoading(true);
+        toast.info("성공");
     }
 
     const signInWithGoogle = () => {
@@ -43,6 +48,8 @@ const LoginClient = () => {
                 <h1 className={styles.logo}>
                     <Image priority src={LogoPath} alt="logo"/>
                 </h1>
+
+           
 
                 <form onSubmit={loginUser} className={styles.form}>
                 {/* input */}
