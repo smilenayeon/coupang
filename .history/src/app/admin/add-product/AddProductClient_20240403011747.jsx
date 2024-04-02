@@ -86,14 +86,8 @@ const AddProductClient = () => {
       })
 
       setIsLoading(false);
-      setUploadProgress(0);
-      setProduct({...initialState})
-
-      toast.success("상품을 저장했습니다.");
-      router.push("/admin/all-products")
     }catch (error){
-      setIsLoading(false);
-      toast.error(error.message);
+      
     }
   };
 
@@ -191,14 +185,14 @@ const AddProductClient = () => {
           />
 
           <label>상품 설명:</label>
-            <textarea
-              name="desc"
-              value={product.desc}          
-              cols={10}          
-              rows={10}          
-              required          
-              onChange={e => handleInputChange(e)}                    
-            ></textarea>                
+            <textarea 
+              name="description" 
+              value={product.desc}
+              cols={10}
+              rows={10}
+              required
+              onChange={(e) => handleInputChange(e)}
+            ></textarea>
 
             <Button type="submit">
               상품 생성

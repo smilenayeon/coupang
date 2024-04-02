@@ -195,10 +195,10 @@ const AddProductClient = () => {
               name="desc"
               value={product.desc}          
               cols={10}          
-              rows={10}          
-              required          
-              onChange={e => handleInputChange(e)}                    
-            ></textarea>                
+                        rows={10}
+                        required
+                        onChange={e => handleInputChange(e)}          
+                    ></textarea>        
 
             <Button type="submit">
               상품 생성

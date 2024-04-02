@@ -191,14 +191,14 @@ const AddProductClient = () => {
           />
 
           <label>상품 설명:</label>
-            <textarea
-              name="desc"
-              value={product.desc}          
-              cols={10}          
-              rows={10}          
-              required          
-              onChange={e => handleInputChange(e)}                    
-            ></textarea>                
+            <textarea 
+              name="description" 
+              value={product.desc}
+              cols={10}
+              rows={10}
+              required
+              onChange={(e) => handleInputChange(e)}
+            ></textarea>
 
             <Button type="submit">
               상품 생성

@@ -4,7 +4,7 @@ const nextConfig = {
         domains: [
             'images.unsplash.com',
             'images.remotePatterns',
-            'firebasestorage.googleapis.com',
+            'firebasestorage.googleapis.com'
         ]
     }
 }
